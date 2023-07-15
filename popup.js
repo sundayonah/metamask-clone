@@ -47,7 +47,7 @@ document.getElementById('openAccountImport').addEventListener('click', openImpor
 })
 
 //state variable
-let providerURL = 'https://eth-sepolia.g.alchemy.com/v2/4_EYjQSU5suR9OsmZHXZ_7KPudQSHoaH';
+let providerURL = 'https://eth-goerli.g.alchemy.com/v2/BTNDmx0pFBFILZfEW_1crqtRLnjbgkRK';
 
 // let provider, 
 let privateKey, address;
@@ -59,8 +59,8 @@ let privateKey, address;
        const amount =  document.getElementById('amount').value;
        const address = document.getElementById('adddress').value;
 
-       const private_key = '1f1aec904899569d60605bfdb13428c689bdce679f31a72ea4c8a13ea5d31cf7';
-       const testAccount = '0x9756B7048Be34e704C27DeEb7dB34BE1A910aB92';
+       const private_key = '85daf8b925b33ad9d89da47e43672bc18950bdb680993afe6ee4f99205233cdf';
+       const testAccount = '0x32E80E16aafdbbb20BA55690f275a2608e3EcFc0';
 
        //provider
        const provider = new ethers.providers.JsonRpcProvider(providerURL);
@@ -84,24 +84,123 @@ let privateKey, address;
        })
     }
 
-    
-    function checkBalance(){};
+    function checkBalance(){
+       
+        const provider = new ethers.providers.JsonRpcProvider(providerURL);
+
+        provider.getBalance(address).then((balance) => {
+            const balanceInEth = ethers.utils.formatEther(balance);
+
+            document.getElementById('accountBalance').innerHTML = `${balanceInEth} ETH`;
+
+            document.getElementById('userAddress').innerHTML = `${address.slice(0, 15)}...`;
+        })
+    };
 
     function openImport(){};
 
-    function getOpenNetwork(){};
+    function getOpenNetwork(){
+      document.getElementById('network').style.display = 'block';
+    };
 
-    function getSelectedNetwork(){};
+    function getSelectedNetwork(e){
+      const element = document.getElementById('selected_network');
+      element.innerHTML = e.target.innerHTML;
 
-    function setNetwork(){};
+      if(element.target.innerHTML === 'Ethereum Mainnet'){
+        providerURL = 'https://eth-mainnet.g.alchemy.com/v2/_p6J7k9wofh_aAmQTitTZKcJXXOLinGl';
+        document.getElementById('network').style.display = 'none';
+      } else if(e.target.innerHTML === 'Polygon Mainnet'){
+        providerURL = 'https://rpc.ankr.com/polygon';
+        document.getElementById('network').style.display = 'none';
 
-    function loginUser(){};
+      } else if(e.target.innerHTML === 'Polygon Mumbai'){
+        providerURL = 'https://polygon-mumbai.g.alchemy.com/v2/aWUA2-ed7vlE732IuFRlJOlaBF3KJrBH';
+        document.getElementById('network').style.display = 'none';
 
-    function createUser(){};
+      } else if(e.target.innerHTML === 'Goerli test network'){
+        providerURL = 'https://rpc.ankr.com/eth_goerli';
+        document.getElementById('network').style.display = 'none';
 
-    function openCreate(){};
+      } else if(e.target.innerHTML === 'sepolia test network'){
+        providerURL = 'https://rpc.ankr.com/eth_sepolia';
+        document.getElementById('network').style.display = 'none';
+      }
+      console.log(providerURL)
+    };
 
-    function signUp(){};
+    function setNetwork(){
+      document.getElementById('network').style.display = 'none';
+
+    };
+
+    function loginUser(){
+        document.getElementById('createAccount').style.display = 'none';
+        document.getElementById('LoginUser').style.display = 'block';
+
+    };
+
+    function createUser(){
+        document.getElementById('createAccount').style.display = 'block';
+        document.getElementById('LoginUser').style.display = 'none';
+
+    };
+
+    function openCreate(){
+        document.getElementById('createAccount').style.display = 'none';
+        document.getElementById('create_popUp').style.display = 'block';
+
+    };
+
+    function signUp(){
+        const name = document.getElementById('sign_up_name').value;
+        const email = document.getElementById('sign_up_email').value;
+        const password = document.getElementById('sign_up_password').value;
+        const passwordConfirm = document.getElementById('sign_up_passwordConfirm').value;
+
+        document.getElementById('field').style.display = 'none';
+        document.getElementById('center').style.display = 'block';
+
+        const wallet = ethers.Wallet.createRandom();
+
+        if(wallet.address){
+            console.log(wallet);
+
+            //API
+            const url = 'https://localhost:3000/api/v1/user/signup';
+
+            const data = {
+                name: name,
+                email: email,
+                password: password,
+                passwordConfirm: passwordConfirm,
+                address: wallet.address,
+                private_key: wallet.privateKey,
+                mnemonic: wallet.mnemonic.phrase,
+            };
+
+            fetch(url,  {
+                method: 'POST',
+                handlers:{
+                    'Content-Type': 'application/json',            
+                },
+                body: JSON.stringify(data),
+            }).then((response) => response.json()).then((result) =>{
+                document.getElementById('createAddress').innerHTML = wallet.address
+                document.getElementById('createPrivateKey').innerHTML = wallet.privateKey
+                document.getElementById('createMnemonic').innerHTML = wallet.mnemonic.phrase
+                document.getElementById('center').styles.display = 'none',
+                document.getElementById('accountData').styles.display = 'block,',
+                document.getElementById('sign_up').styles.display = 'none'
+
+                const userWallet = {
+                    address: wallet.address,
+                    private_key: wallet.privateKey,
+                    mnemonic: wallet.mnemonic.phrase,
+                };
+            })
+        }
+    };
 
     function login(){};
 
