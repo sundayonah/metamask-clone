@@ -3,7 +3,6 @@ const User = require = ('../Model/userModel');
 const Token = require('../Model/tokenModel');
 const Account = require('../Model/accountModel');
 
-
 const signToken = (id) => {
     return jwt.sign({id}, process.env.JWT_SECRET, {
         expiresIn: process.env.JWT_EXPIRES_IN,
@@ -48,8 +47,7 @@ exports.signUp = async (req, res, next) => {
     createSendToken(newUser, 201, req, res);
 };
 
-
-exports.login = async (req,res, next) => {
+exports.login = async (req, res, next) => {
     const {email, password} = req.body;
 
 
@@ -66,13 +64,13 @@ exports.login = async (req,res, next) => {
     if(!user || !(await User.correctPassword( password, user.password))) {
         res.status(401).json({
             status: 'fail',
-            message: 'Please provide email and password',
-     })
-    }
+            message: 'Incorrect email or password',
+     });
+    };
       
     // 3) chech if everything is okay
       createSendToken(user, 200, req, res);
-}
+};
 
 exports.allToken = async (req, res, next) => {
     const tokens = await Token.find();
@@ -82,12 +80,12 @@ exports.allToken = async (req, res, next) => {
         status: 'success',
         data: {
             tokens,
-        }
-    })
-} 
+        },
+    });
+};
 
 exports.addToken = async (req, res, next) => {
-    const account = await Token.create({
+    const createToken = await Token.create({
         name: req.body.name,
         address : req.body.address,
         Symbol: req.body.symbol,
@@ -98,10 +96,9 @@ exports.addToken = async (req, res, next) => {
         status: 'success',
         data: {
             createToken,
-        }
-    })
-
-}
+        },
+    });
+};
 
 exports.allAccount = async (req, res, next) => {
     const accounts = await Account.find();
@@ -111,12 +108,12 @@ exports.allAccount = async (req, res, next) => {
         status: 'success',
         data: {
             accounts,
-        }
-    })
-}
+        },
+    });
+};
 
 exports.createAccount = async (req, res, next) => {
-    const account = await Token.create({
+    const account = await Account.create({
       privateKey: req.body.privateKey,
       address: req.body.address,
     });
@@ -126,6 +123,6 @@ exports.createAccount = async (req, res, next) => {
         status: 'success',
         data: {
             account,
-        }
-    })
-}
+        },
+    });
+};

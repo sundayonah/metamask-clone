@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
-const accountSchema = new mongoose.Schema({
-    privateKey: String,
+const tokenSchema = new mongoose.Schema({
+    name: String,
     address: String,
     symbol: String,
 });

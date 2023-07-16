@@ -21,7 +21,7 @@ const userSchema = new mongoose.Schema({
         required: [true, 'Please confirm your password'],
         validate: {
           validator: function (el) {
-            return el === this.password;
+           return el === this.password;
           },
           message: 'Password do not match! Please try again',
         }
@@ -41,7 +41,7 @@ userSchema.pre('save', async function (next) {
     // Delete passwordConfirm field
     this.passwordConfirm = undefined;
     next();
-})
+});
 
 userSchema.pre('save', function (next) {
     if(!this.isModified('password') || this.isNew) return next();
@@ -54,7 +54,7 @@ userSchema.pre(/^find/, function (next) {
     //this points to the current query
     this.find({ active: {$ne: false}});
     next();
-})
+});
 
 userSchema.methods.correctPassword = async function (
     candidatePassword,
