@@ -1,3 +1,5 @@
+//PURE JAVASCRIPT
+
 document.addEventListener('DOMContentLoaded', function() {
 //in here we going to target element
 
@@ -46,13 +48,13 @@ document.getElementById('add_New_Account').addEventListener('click', addAccount)
 document.getElementById('openAccountImport').addEventListener('click', openImportModel)
 })
 
-//state variable
+//state variables   
 let providerURL = 'https://eth-goerli.g.alchemy.com/v2/BTNDmx0pFBFILZfEW_1crqtRLnjbgkRK';
 
 // let provider, 
 let privateKey, address;
 
-//FUNCTION
+//FUNCTIONS
     function handler(){
 
        document.getElementById('transfer_center').style.display = 'flex';
