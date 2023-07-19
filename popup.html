@@ -3,7 +3,601 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@onah</title>
+    <title>MetaMask - Clone</title>
+    <link rel="stylesheet" href="style.css">
   </head>
-  <body></body>
+  <body>
+    <div class="card">
+      <div class="card2">
+        <!-- header -->
+          <div class="header">
+            <div class="header_log">
+              <img src="./assets/myFavicon.png" 
+              alt="myFav" 
+              />
+            </div>
+            <div class="header_network" id="header_network">
+              <p>
+                <img src="./assets/SVG/question.svg" 
+                alt="question_img" 
+                />
+                <span id="selected_network">Polygon Mumbai</span>
+                <img src="./assets//SVG/arrow.svg" 
+                alt="Arrow" 
+                />
+              </p>
+            </div>
+          </div>
+          <!--End of  header -->
+          
+          <!-- network section -->
+
+          <div id="network" class="network">
+            <div class="network_title">
+              <p>Networks</p>
+            </div>
+
+          <div class="network_list" id="network_item">
+            <p class="network_item">
+              <svg
+                viewBox="0 0 16 16"
+                fill="currentColor"
+                height="16"
+                width="16"
+                xmlns="http://www.w3.org/2000/svg"
+                class="input-icon"
+              >
+                <path
+                  d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2zm3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"
+                ></path>
+              </svg>
+              <span>Ethereum Mainnet</span>
+            </p>
+            <p class="network_item">
+              <svg
+              viewBox="0 0 16 16"
+              fill="currentColor"
+              height="16"
+              width="16"
+              xmlns="http://www.w3.org/2000/svg"
+              class="input-icon"
+            >
+              <path
+                d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2zm3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"
+              ></path>
+            </svg>
+              <span>Polygon Mainnet</span>
+            </p>
+            <p class="network_item">
+              <svg
+                viewBox="0 0 16 16"
+                fill="currentColor"
+                height="16"
+                width="16"
+                xmlns="http://www.w3.org/2000/svg"
+                class="input-icon"
+              >
+                <path
+                  d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2zm3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"
+                ></path>
+              </svg>
+              <span>Polygon Mumbai</span>
+            </p>
+            <p class="network_item">
+              <svg
+              viewBox="0 0 16 16"
+              fill="currentColor"
+              height="16"
+              width="16"
+              xmlns="http://www.w3.org/2000/svg"
+              class="input-icon"
+            >
+              <path
+                d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2zm3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"
+              ></path>
+            </svg>
+              <span>Goerli Test Network</span>
+            </p>
+            <p class="network_item">
+              <svg
+              viewBox="0 0 16 16"
+              fill="currentColor"
+              height="16"
+              width="16"
+              xmlns="http://www.w3.org/2000/svg"
+              class="input-icon"
+            >
+              <path
+                d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2zm3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"
+              ></path>
+            </svg>
+              <span>Sepolia Test Network</span>
+            </p>
+           </div>
+           <button id="add_network" 
+             class="button3 addStyle">Add Network</button>
+          </div>
+
+           <!--end of network section -->
+
+           <!-- home screen -->
+           <div id="createAccount" 
+             class="home_screen_signup">
+            <img src="./assets/myFavicon.png" 
+               alt="myFav"
+               class="home_screeen_img"
+            />
+            <h1 class="home_title">@xhunTeq.</h1>
+            <p>Welcome to the next generation crypto wallet exchange.</p>
+            <button id="openCreate" class="button3 connectWallet">Create Account</button>
+            <p>Login to your Account
+              <strong class="home_title" id="loginAccount">LogIn</strong>
+            </p>
+           </div>
+           <!--end of home screen -->
+
+           <!-- create popup -->
+           <div id="create_popUp" class="create_popUp">
+            <div class="form">
+              <p id="heading"> Create Account </p>
+              <div id="field">
+                <div class="field">
+                <svg
+                viewBox="0 0 16 16"
+                fill="currentColor"
+                height="16"
+                width="16"
+                xmlns="http://www.w3.org/2000/svg"
+                class="input-icon"
+              >
+                <path
+                  d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2zm3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"
+                ></path>
+              </svg>
+              <input 
+              type="text" 
+              class="input-field"
+              placeholder="name"
+              id="sign_up_name">
+            </div>
+            <p class="space"></p>
+                  <div class="field">
+                    <svg
+                        viewBox="0 0 16 16"
+                        fill="currentColor"
+                        height="16"
+                        width="16"
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="input-icon"
+                      >
+                        <path
+                          d="M13.106 7.222c0-2.967-2.249-5.032-5.482-5.032-3.35 0-5.646 2.318-5.646 5.702 0 3.493 2.235 5.708 5.762 5.708.862 0 1.689-.123 2.304-.335v-.862c-.43.199-1.354.328-2.29.328-2.926 0-4.813-1.88-4.813-4.798 0-2.844 1.921-4.881 4.594-4.881 2.735 0 4.608 1.688 4.608 4.156 0 1.682-.554 2.769-1.416 2.769-.492 0-.772-.28-.772-.76V5.206H8.923v.834h-.11c-.266-.595-.881-.964-1.6-.964-1.4 0-2.378 1.162-2.378 2.823 0 1.737.957 2.906 2.379 2.906.8 0 1.415-.39 1.709-1.087h.11c.081.67.703 1.148 1.503 1.148 1.572 0 2.57-1.415 2.57-3.643zm-7.177.704c0-1.197.54-1.907 1.456-1.907.93 0 1.524.738 1.524 1.907S8.308 9.84 7.371 9.84c-.895 0-1.442-.725-1.442-1.914z"
+                        ></path>
+                      </svg>
+                  <input 
+                  type="text" 
+                  class="input-field"
+                  placeholder="email"
+                  id="sign_up_email">
+                </div>
+              <p class="space"></p>
+
+                <div class="field">
+                  <svg
+                  viewBox="0 0 16 16"
+                  fill="currentColor"
+                  height="16"
+                  width="16"
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="input-icon"
+                >
+                  <path
+                    d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2zm3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"
+                  ></path>
+                </svg>
+                <input 
+                type="text" 
+                class="input-field"
+                placeholder="password"
+                id="sign_up_password">
+              </div>
+              <p class="space"></p>
+              <div class="field">
+                <svg
+                viewBox="0 0 16 16"
+                fill="currentColor"
+                height="16"
+                width="16"
+                xmlns="http://www.w3.org/2000/svg"
+                class="input-icon"
+              >
+                <path
+                  d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2zm3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"
+                ></path>
+              </svg>
+              <input 
+              type="text" 
+              class="input-field"
+              placeholder="confirm password"
+              id="sign_up_confirmPassword">
+            </div>
+              </div>
+              <div class="center" id="center">
+                <div class="loader">
+                  <div class="bar1"></div>
+                  <div class="bar2"></div>
+                  <div class="bar3"></div>
+                  <div class="bar4"></div>
+                  <div class="bar5"></div>
+                  <div class="bar6"></div>
+                  <div class="bar7"></div>
+                  <div class="bar8"></div>
+                  <div class="bar9"></div>
+                  <div class="bar10"></div>
+                  <div class="bar11"></div>
+                  <div class="bar12"></div>
+                </div>
+              </div>
+              <div id="accountData" class="accountData">
+                <h3 id="accountInfo">Address</h3>
+                <p id="createdAddress">Addresss:</p>
+                <h3>Private Key</h3>
+                <p id="createdPrivateKey">Private Key:</p>
+                <h3>Mnemonic</h3>
+                <p id="createdMnemonic">Mnemonic:</p>
+              </div>
+              <button id="sign_up" class="button3 connectWallet">Sign Up</button>
+              <button id="goHomePage" class="button3 connectWallet">go Back</button>
+            </div>
+           </div>
+           <!--end of create popup -->
+
+           <!-- Log section -->
+
+             <div id="LoginUser" class="home_screen_login">
+              <img src="./assets/myFavicon.png"
+               alt="myFav"
+               class="home_screeen_img"
+               />
+               <h1 class="home_title">@xhunTeq.</h1>
+               <p>Welcome Back!</p>
+               <div class="form" id="login_form">
+                <div class="field">
+                  <svg
+                  viewBox="0 0 16 16"
+                  fill="currentColor"
+                  height="16"
+                  width="16"
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="input-icon"
+                >
+                  <path
+                    d="M13.106 7.222c0-2.967-2.249-5.032-5.482-5.032-3.35 0-5.646 2.318-5.646 5.702 0 3.493 2.235 5.708 5.762 5.708.862 0 1.689-.123 2.304-.335v-.862c-.43.199-1.354.328-2.29.328-2.926 0-4.813-1.88-4.813-4.798 0-2.844 1.921-4.881 4.594-4.881 2.735 0 4.608 1.688 4.608 4.156 0 1.682-.554 2.769-1.416 2.769-.492 0-.772-.28-.772-.76V5.206H8.923v.834h-.11c-.266-.595-.881-.964-1.6-.964-1.4 0-2.378 1.162-2.378 2.823 0 1.737.957 2.906 2.379 2.906.8 0 1.415-.39 1.709-1.087h.11c.081.67.703 1.148 1.503 1.148 1.572 0 2.57-1.415 2.57-3.643zm-7.177.704c0-1.197.54-1.907 1.456-1.907.93 0 1.524.738 1.524 1.907S8.308 9.84 7.371 9.84c-.895 0-1.442-.725-1.442-1.914z"
+                  ></path>
+                </svg>
+                 <input type="text"
+                 id="login_email"
+                 placeholder="email"
+                 class="input-field"
+                 />
+                </div>
+                <div class="field">
+                  <svg
+                  viewBox="0 0 16 16"
+                  fill="currentColor"
+                  height="16"
+                  width="16"
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="input-icon"
+                >
+                  <path
+                    d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2zm3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"
+                  ></path>
+                </svg>
+                 <input type="text"
+                 id="login_password"
+                 placeholder="password"
+                 class="input-field"
+                 />
+                </div>
+               </div>
+               <button id="login_up" class="button3 connectWallet">
+                Login
+               </button>
+               <p>Login to your Account 
+                <strong class="home_title" 
+                id="accountCreate">Create Account
+              </strong>
+            </p>
+             </div>
+
+           <!--end of Log section -->
+
+           <!-- transfer component -->
+ 
+              <div class="transfer_form" id="transfer_form">
+                <div class="form">
+                  <img src="./assets/arrowleft.png"
+                   alt=""
+                   class="goBack"
+                   id="goBack"
+                   />
+                   <p id="heading">Transfer Funds</p>
+                   <div class="field">
+                    <svg
+                    viewBox="0 0 16 16"
+                    fill="currentColor"
+                    height="16"
+                    width="16"
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="input-icon"
+                  >
+                    <path
+                      d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2zm3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"
+                    ></path>
+                  </svg>
+                  <input type="text"
+                  class="input-field"
+                  placeholder="amount"
+                  id="amount"
+                  />
+                   </div>
+                   <p class="space"></p>
+                   <div class="field">
+                    <svg
+                  viewBox="0 0 16 16"
+                  fill="currentColor"
+                  height="16"
+                  width="16"
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="input-icon"
+                >
+                  <path
+                    d="M13.106 7.222c0-2.967-2.249-5.032-5.482-5.032-3.35 0-5.646 2.318-5.646 5.702 0 3.493 2.235 5.708 5.762 5.708.862 0 1.689-.123 2.304-.335v-.862c-.43.199-1.354.328-2.29.328-2.926 0-4.813-1.88-4.813-4.798 0-2.844 1.921-4.881 4.594-4.881 2.735 0 4.608 1.688 4.608 4.156 0 1.682-.554 2.769-1.416 2.769-.492 0-.772-.28-.772-.76V5.206H8.923v.834h-.11c-.266-.595-.881-.964-1.6-.964-1.4 0-2.378 1.162-2.378 2.823 0 1.737.957 2.906 2.379 2.906.8 0 1.415-.39 1.709-1.087h.11c.081.67.703 1.148 1.503 1.148 1.572 0 2.57-1.415 2.57-3.643zm-7.177.704c0-1.197.54-1.907 1.456-1.907.93 0 1.524.738 1.524 1.907S8.308 9.84 7.371 9.84c-.895 0-1.442-.725-1.442-1.914z"
+                  ></path>
+                </svg>
+                  <input type="text"
+                  class="input-field"
+                  placeholder="Transfer Address"
+                  id="address"
+                  />
+                   </div>
+                   <div class="center" id="transfer_center">
+                    <div class="loader">
+                      <div class="bar1"></div>
+                      <div class="bar2"></div>
+                      <div class="bar3"></div>
+                      <div class="bar4"></div>
+                      <div class="bar5"></div>
+                      <div class="bar6"></div>
+                      <div class="bar7"></div>
+                      <div class="bar8"></div>
+                      <div class="bar9"></div>
+                      <div class="bar10"></div>
+                      <div class="bar11"></div>
+                      <div class="bar12"></div>
+                    </div>
+                  </div>
+                  <small>
+                    <a href="" id="link" target="_blank">Check Your Transaction</a>
+                  </small>
+                  <button class="button3 connectWallet" id="transferFund">Transfer</button>
+                </div>
+              </div>
+
+           <!--end of transfer component -->
+
+           <!-- import component -->
+
+             <div id="import_token" class="import_token">
+              <div class="form">
+                <img 
+                src="./assets/arrowleft.png" 
+                alt="" 
+                class="goBack"
+                id="goBack_import"
+                />
+                <p id="heading">Import Token</p>
+                <div class="field">
+                  <svg
+                  viewBox="0 0 16 16"
+                  fill="currentColor"
+                  height="16"
+                  width="16"
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="input-icon"
+                >
+                  <path
+                    d="M13.106 7.222c0-2.967-2.249-5.032-5.482-5.032-3.35 0-5.646 2.318-5.646 5.702 0 3.493 2.235 5.708 5.762 5.708.862 0 1.689-.123 2.304-.335v-.862c-.43.199-1.354.328-2.29.328-2.926 0-4.813-1.88-4.813-4.798 0-2.844 1.921-4.881 4.594-4.881 2.735 0 4.608 1.688 4.608 4.156 0 1.682-.554 2.769-1.416 2.769-.492 0-.772-.28-.772-.76V5.206H8.923v.834h-.11c-.266-.595-.881-.964-1.6-.964-1.4 0-2.378 1.162-2.378 2.823 0 1.737.957 2.906 2.379 2.906.8 0 1.415-.39 1.709-1.087h.11c.081.67.703 1.148 1.503 1.148 1.572 0 2.57-1.415 2.57-3.643zm-7.177.704c0-1.197.54-1.907 1.456-1.907.93 0 1.524.738 1.524 1.907S8.308 9.84 7.371 9.84c-.895 0-1.442-.725-1.442-1.914z"
+                  ></path>
+                </svg>
+                <input type="text"
+                class="input-field"
+                placeholder="token address"
+                id="token_address"
+                />
+                </div>
+                <p class="space"></p>
+                <div class="field">
+                  <svg
+                  viewBox="0 0 16 16"
+                  fill="currentColor"
+                  height="16"
+                  width="16"
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="input-icon"
+                >
+                  <path
+                    d="M13.106 7.222c0-2.967-2.249-5.032-5.482-5.032-3.35 0-5.646 2.318-5.646 5.702 0 3.493 2.235 5.708 5.762 5.708.862 0 1.689-.123 2.304-.335v-.862c-.43.199-1.354.328-2.29.328-2.926 0-4.813-1.88-4.813-4.798 0-2.844 1.921-4.881 4.594-4.881 2.735 0 4.608 1.688 4.608 4.156 0 1.682-.554 2.769-1.416 2.769-.492 0-.772-.28-.772-.76V5.206H8.923v.834h-.11c-.266-.595-.881-.964-1.6-.964-1.4 0-2.378 1.162-2.378 2.823 0 1.737.957 2.906 2.379 2.906.8 0 1.415-.39 1.709-1.087h.11c.081.67.703 1.148 1.503 1.148 1.572 0 2.57-1.415 2.57-3.643zm-7.177.704c0-1.197.54-1.907 1.456-1.907.93 0 1.524.738 1.524 1.907S8.308 9.84 7.371 9.84c-.895 0-1.442-.725-1.442-1.914z"
+                  ></path>
+                </svg>
+                <input type="text"
+                class="input-field"
+                placeholder="token name"
+                id="token_name"
+                />
+                </div>
+                <p class="space"></p>
+                <div class="field">
+                  <svg
+                  viewBox="0 0 16 16"
+                  fill="currentColor"
+                  height="16"
+                  width="16"
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="input-icon"
+                >
+                  <path
+                    d="M13.106 7.222c0-2.967-2.249-5.032-5.482-5.032-3.35 0-5.646 2.318-5.646 5.702 0 3.493 2.235 5.708 5.762 5.708.862 0 1.689-.123 2.304-.335v-.862c-.43.199-1.354.328-2.29.328-2.926 0-4.813-1.88-4.813-4.798 0-2.844 1.921-4.881 4.594-4.881 2.735 0 4.608 1.688 4.608 4.156 0 1.682-.554 2.769-1.416 2.769-.492 0-.772-.28-.772-.76V5.206H8.923v.834h-.11c-.266-.595-.881-.964-1.6-.964-1.4 0-2.378 1.162-2.378 2.823 0 1.737.957 2.906 2.379 2.906.8 0 1.415-.39 1.709-1.087h.11c.081.67.703 1.148 1.503 1.148 1.572 0 2.57-1.415 2.57-3.643zm-7.177.704c0-1.197.54-1.907 1.456-1.907.93 0 1.524.738 1.524 1.907S8.308 9.84 7.371 9.84c-.895 0-1.442-.725-1.442-1.914z"
+                  ></path>
+                </svg>
+                <input type="text"
+                class="input-field"
+                placeholder="token symbol"
+                id="token_symbol"
+                />
+                </div>
+                <button class="button3 connectWallet" id="add_new_token">Import</button>
+
+                <!-- new -->
+                  <!-- <div class="accountList" id="accountList"></div> -->
+              </div>
+             </div>
+
+           <!--end of import component -->
+
+           <!-- import account new -->
+
+           <div id="import_account" class="import_account">
+             <div class="form">
+              <img src="./assets/arrowleft.png"
+              id="close_import_account"
+              class="goBack"
+              alt=""
+              />
+              <p id="heading">Import Account</p>
+              <div class="field">
+                <svg
+                viewBox="0 0 16 16"
+                fill="currentColor"
+                height="16"
+                width="16"
+                xmlns="http://www.w3.org/2000/svg"
+                class="input-icon"
+              >
+                <path
+                  d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2zm3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"
+                ></path>
+              </svg>
+              <textarea
+                  type="text"
+                  class="input-field"
+                  placeholder="private key"
+                  name="" 
+                  id="add_account_private_key"
+                  cols="30"
+                  rows="5">
+                </textarea>
+              </div>
+              <button id="add_New_Account" class="button3 connectWallet">
+                Import
+              </button>
+              <div id="accountList" class="accountList">
+                <!-- <div class="lists">
+                  <p>1</p>
+                  <p> w2345623afgerg...</p>
+                </div> -->
+              </div>
+             </div>    
+           </div>
+
+           <!--end of import account new -->
+
+           <!-- import account -->
+
+              <div class="home" id="home">
+                <div class="home_header">
+                  <div>
+                    <p id="userAddress">Connecting...</p>
+                  </div>
+                  <div>
+                    <p>Active</p>
+                  </div>
+                </div>
+                <img src="./assets/myFavicon.png" 
+                alt=""
+                class="home_header_img"
+                />
+                <h1 id="accountBalance">0.00 MATIC</h1>
+
+                <div class="home_features">
+                  <div class="home_feature_item">
+                    <img src="./assets/buy.png" 
+                    alt="" class="home_features_img"
+                    />
+                    <p class="text">Buy</p>
+                  </div>
+                  <div class="home_feature_item" id="open_Transfer">
+                    <img src="./assets/send.png" 
+                    alt="" class="home_features_img"
+                    />
+                    <p class="text">Send</p>
+                  </div>
+                  <div class="home_feature_item" id="openAccountImport">
+                    <img src="./assets/user.png" 
+                    alt="" class="home_features_img"
+                    />
+                    <p class="text">Account</p>
+                  </div>
+                  <div class="home_feature_item" id="open_Import">
+                    <img src="./assets/import.png" 
+                    alt="" class="home_features_img"
+                    />
+                    <p class="text">Import</p>
+                  </div>
+                </div>
+                <div class="home_tabs">
+                  <p id="open_assets">Assets</p>
+                  <p id="logout">logout</p>
+                  <p id="open_activity">Activity</p>
+                </div>
+                <p class="space"></p>
+                <p class="space"></p>
+
+                <!-- Assets -->
+                    <div id="assets" class="assets"></div>
+                  
+                <!-- Activity -->
+                     <div id="activity" class="activity">
+                      <div class="assets_item">
+                        <img src="./assets/myFavicon.png"
+                         alt=""
+                         class="assets_item_img"
+                         />
+                          <span>9867eh98e......</span>
+                          <span>0.99 MATIC</span>
+
+                      </div>
+                      <div class="assets_item">
+                        <img src="./assets/myFavicon.png"
+                         alt=""
+                         class="assets_item_img"
+                         />
+                          <span>9867eh98e......</span>
+                          <span>0.99 MATIC</span>
+
+                      </div>
+                     </div>
+
+              </div>
+
+           <!--end of import account -->
+
+      </div>
+    </div>
+    <script src="https://cdn.ethers.io./lib/ethers-5.2.umd.min.js"
+     type="application/javascript"></script>
+    <!-- <script src="ethers.js"></script> -->
+    <script src="popup.js"></script>
+  </body>
 </html>

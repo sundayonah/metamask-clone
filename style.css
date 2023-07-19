@@ -122,6 +122,7 @@ body {
   text-align: center;
   padding: 2rem;
   display: block;
+  /* display: none; */
 }
 
 .create_popUp {
@@ -402,7 +403,7 @@ textarea {
 
 .home_features {
   display: grid;
-  grid-template-columes: repeat(4, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 1rem;
 }
 
@@ -412,7 +413,7 @@ textarea {
   height: 20px;
 }
 
-.homr_features_item > p {
+.home_features_item > p {
   line-height: 0;
   color: #00ff75;
 }

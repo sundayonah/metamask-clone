@@ -33,6 +33,8 @@ document.getElementById('goBack').addEventListener('click', goBack);
 
 document.getElementById('open_Import').addEventListener('click', openImport);
 
+document.getElementById('goBack_import').addEventListener('click', importGoBack);
+
 document.getElementById('open_assets').addEventListener('click', openAssets);
 
 document.getElementById('open_Activity').addEventListener('click', openActivity);
@@ -54,15 +56,15 @@ let providerURL = 'https://eth-goerli.g.alchemy.com/v2/BTNDmx0pFBFILZfEW_1crqtRL
 // let provider, 
 let privateKey, address;
 
-//FUNCTIONS
+//FUNCTIONS 
     function handler(){
 
        document.getElementById('transfer_center').style.display = 'flex';
        const amount =  document.getElementById('amount').value;
        const address = document.getElementById('adddress').value;
 
-       const private_key = '85daf8b925b33ad9d89da47e43672bc18950bdb680993afe6ee4f99205233cdf';
-       const testAccount = '0x32E80E16aafdbbb20BA55690f275a2608e3EcFc0';
+    //    const private_key = '85daf8b925b33ad9d89da47e43672bc18950bdb680993afe6ee4f99205233cdf';
+    //    const testAccount = '0x32E80E16aafdbbb20BA55690f275a2608e3EcFc0';
 
        //provider
        const provider = new ethers.providers.JsonRpcProvider(providerURL);
@@ -82,6 +84,8 @@ let privateKey, address;
         document.getElementById('transfer_center').style.display = 'none';
         const a = document.getElementById('link');
 
+        a.href = `https://mumbai.polygonscan.com/tx/${txObj.Hash}`;
+ 
         document.getElementById('link').style.display = 'block';
        })
     }
@@ -97,11 +101,6 @@ let privateKey, address;
 
             document.getElementById('userAddress').innerHTML = `${address.slice(0, 15)}...`;
         })
-    };
-
-    function openImport(){
-        document.getElementById('import_token').style.display = 'block';
-        document.getElementById('home').style.display = 'none';
     };
 
     function getOpenNetwork(){
@@ -186,7 +185,7 @@ let privateKey, address;
 
             fetch(url,  {
                 method: 'POST',
-                handlers:{
+                headers:{
                     'Content-Type': 'application/json',            
                 },
                 body: JSON.stringify(data),
@@ -233,7 +232,7 @@ let privateKey, address;
 
           fetch(url,  {
             method: 'POST',
-            handlers:{
+            headers:{
                 'Content-Type': 'application/json',            
             },
             body: JSON.stringify(data),
@@ -262,20 +261,25 @@ let privateKey, address;
     };
 
     function openTransfer(){
-        document.getElementById('transfer_from').style.display = 'block';
+        document.getElementById('transfer_form').style.display = 'block';
         document.getElementById('home').style.display = 'none';
     };
 
     function goBack(){
-        document.getElementById('transfer_from').style.display = 'none';
+        document.getElementById('transfer_form').style.display = 'none';
         document.getElementById('home').style.display = 'block';
+    };
+
+    function openImport(){
+        document.getElementById('import_token').style.display = 'block';
+        document.getElementById('home').style.display = 'none';
     };
 
     function importGoBack(){
         document.getElementById('import_token').style.display = 'nome';
         document.getElementById('home').style.display = 'block';
     }
-
+ 
     function openActivity(){
         document.getElementById('activity').style.display = 'block';
         document.getElementById('assets').style.display = 'none';
@@ -317,7 +321,7 @@ let privateKey, address;
 
         fetch(url, {
             method: 'POST',
-            handlers:{
+            headers:{
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify(data),
@@ -366,7 +370,7 @@ let privateKey, address;
         const str = localStorage.getItem('userWallet');
         const parseObj = JSON.parse(str);
 
-        if(parseObj.address){
+        if(parseObj?.address){
             document.getElementById('LoginUser').style.display = 'none';
             document.getElementById('home').style.display = 'block';
 

@@ -13,9 +13,10 @@ console.log(DB)
 mongoose
 .connect(DB, {
     useNewUrlParser: true,
+    useUnifiedTopology: true, // Add this option to use the new Server Discovery and Monitoring engine
     useCreateIndex: true,
-    useFindAndModify: true,
-})
+    useFindAndModify: false, // You may set this to false if you don't use the findAndModify functions
+  })
 .then(() => console.log('DB connection established!'));
 
 const port = 3000;
