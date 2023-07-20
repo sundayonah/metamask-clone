@@ -3,7 +3,7 @@ const authController = require('../Controllers/authController');
 
 const router = express.Router();
 
-router.get('./alltoken', authController.allToken);
-router.post('./createtoken', authController.addToken);
+router.get('/alltoken', authController.allToken);
+router.post('/createtoken', authController.addToken);
 
 module.exports = router;

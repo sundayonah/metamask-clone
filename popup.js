@@ -51,19 +51,22 @@ document.getElementById('openAccountImport').addEventListener('click', openImpor
 })
 
 //state variables   
-let providerURL = 'https://eth-goerli.g.alchemy.com/v2/BTNDmx0pFBFILZfEW_1crqtRLnjbgkRK';
+// let providerURL = 'https://eth-goerli.g.alchemy.com/v2/BTNDmx0pFBFILZfEW_1crqtRLnjbgkRK';
+
+let providerURL = 'https://polygon-mumbai.g.alchemy.com/v2/N_UCgZsAW0CQ93F2CWqpTmJ2LByafJbg';
 
 // let provider, 
-let privateKey, address;
+let privateKey;
+let address
 
 //FUNCTIONS 
-    function handler(){
+    function handler(){ 
 
        document.getElementById('transfer_center').style.display = 'flex';
        const amount =  document.getElementById('amount').value;
        const address = document.getElementById('adddress').value;
 
-    //    const private_key = '85daf8b925b33ad9d89da47e43672bc18950bdb680993afe6ee4f99205233cdf';
+    //    const private_key = '1f1aec904899569d60605bfdb13428c689bdce679f31a72ea4c8a13ea5d31cf7';
     //    const testAccount = '0x32E80E16aafdbbb20BA55690f275a2608e3EcFc0';
 
        //provider
@@ -90,14 +93,14 @@ let privateKey, address;
        })
     }
 
-    function checkBalance(){
+    function checkBalance(address){
        
         const provider = new ethers.providers.JsonRpcProvider(providerURL);
 
         provider.getBalance(address).then((balance) => {
             const balanceInEth = ethers.utils.formatEther(balance);
 
-            document.getElementById('accountBalance').innerHTML = `${balanceInEth} ETH`;
+            document.getElementById('accountBalance').innerHTML = `${balanceInEth} MATIC`;
 
             document.getElementById('userAddress').innerHTML = `${address.slice(0, 15)}...`;
         })
@@ -112,14 +115,14 @@ let privateKey, address;
       element.innerHTML = e.target.innerHTML;
 
       if(element.target.innerHTML === 'Ethereum Mainnet'){
-        providerURL = 'https://eth-mainnet.g.alchemy.com/v2/_p6J7k9wofh_aAmQTitTZKcJXXOLinGl';
+        providerURL = 'https://eth-mainnet.g.alchemy.com/v2/1V5KSkZF5x5F1h0wEAhcgTDBpwr7-OsC';
         document.getElementById('network').style.display = 'none';
       } else if(e.target.innerHTML === 'Polygon Mainnet'){
         providerURL = 'https://rpc.ankr.com/polygon';
         document.getElementById('network').style.display = 'none';
 
       } else if(e.target.innerHTML === 'Polygon Mumbai'){
-        providerURL = 'https://polygon-mumbai.g.alchemy.com/v2/aWUA2-ed7vlE732IuFRlJOlaBF3KJrBH';
+        providerURL = 'https://polygon-mumbai.g.alchemy.com/v2/N_UCgZsAW0CQ93F2CWqpTmJ2LByafJbg';
         document.getElementById('network').style.display = 'none';
 
       } else if(e.target.innerHTML === 'Goerli test network'){
@@ -160,7 +163,7 @@ let privateKey, address;
         const name = document.getElementById('sign_up_name').value;
         const email = document.getElementById('sign_up_email').value;
         const password = document.getElementById('sign_up_password').value;
-        const passwordConfirm = document.getElementById('sign_up_passwordConfirm').value;
+        const passwordConfirm = document.getElementById('sign_up_confirmPassword').value;
 
         document.getElementById('field').style.display = 'none';
         document.getElementById('center').style.display = 'block';
@@ -171,7 +174,7 @@ let privateKey, address;
             console.log(wallet);
 
             //API
-            const url = 'https://localhost:3000/api/v1/user/signup';
+            const url = 'http://localhost:3000/api/v1/user/signup';
 
             const data = {
                 name: name,
@@ -182,7 +185,7 @@ let privateKey, address;
                 private_key: wallet.privateKey,
                 mnemonic: wallet.mnemonic.phrase,
             };
-
+                                  0
             fetch(url,  {
                 method: 'POST',
                 headers:{
@@ -210,12 +213,12 @@ let privateKey, address;
                 window.location.reload();
             })
             .catch((err) =>{
-                console.log('error', err);ß
+                console.log('error', err);
             })
         }
     };
 
-    function login(){
+    function login(){ 
         document.getElementById('login_form').style.display = 'none';
         document.getElementById('center').style.display = 'block';
 
@@ -223,7 +226,7 @@ let privateKey, address;
         const password = document.getElementById('login_password').value;
 
           //API
-          const url = 'https://localhost:3000/api/v1/user/login';
+          const url = 'http://localhost:3000/api/v1/user/login';
 
           const data = {
               email: email,
@@ -236,13 +239,15 @@ let privateKey, address;
                 'Content-Type': 'application/json',            
             },
             body: JSON.stringify(data),
-        }).then((response) => response.json()).then((result) =>{
+        })
+        .then((response) => response.json())
+        .then((result) => {
             console.log(result);
       
             const userWallet = {
-                address: wallet.address,
-                private_key: wallet.privateKey,
-                mnemonic: wallet.mnemonic.phrase,
+                address: result.wallet.address,
+                private_key: result.wallet.privateKey,
+                mnemonic: result.wallet.mnemonic.phrase,
             };
 
             const jsonObj = JSON.stringify(userWallet);
@@ -312,7 +317,7 @@ let privateKey, address;
 
         //API call
 
-        const url = 'https://localhost:3000/api/v1/token/createtoken';
+        const url = 'http://localhost:3000/api/v1/tokens/createtoken';
         const data = {
             name: name,
             address: address,
@@ -343,7 +348,7 @@ let privateKey, address;
 
         console.log(wallet)
 
-        const url = 'https://localhost:3000/api/v1/account/createaccount';
+        const url = 'http://localhost:3000/api/v1/account/createaccount';
 
         const data = {
             privateKey: privateKey,
@@ -366,23 +371,24 @@ let privateKey, address;
         })
     };
 
-    function myFunction(){
+    function myFunction(){ 
         const str = localStorage.getItem('userWallet');
-        const parseObj = JSON.parse(str);
+        const parsedObj = JSON.parse(str);
 
-        if(parseObj?.address){
+        if(parsedObj?.address){
             document.getElementById('LoginUser').style.display = 'none';
             document.getElementById('home').style.display = 'block';
 
-            privateKey = parseObj.private_key;
-            address = parseObj.address;
+            privateKey = parsedObj.private_key;
+            address = parsedObj.address;
 
-            checkBalance(parseObj.address);
+            checkBalance(parsedObj.address);
         }
 
         const tokenRender = document.querySelector('.assets');
         const accountRender = document.querySelector('.accountList');
-        const url = 'https://localhost:3000/api/v1/tokens/alltoken'
+
+        const url = 'http://localhost:3000/api/v1/tokens/alltoken'
         fetch(url).then((response) => response.json()).then((data) => {
             let elements = '';
 
@@ -403,7 +409,7 @@ let privateKey, address;
             console.log(err)
         })
           
-        fetch('https://localhost:3000/api/v1/account/allaccount')
+        fetch('http://localhost:3000/api/v1/account/allaccount')
         .then((response) => response.json())
         .then((data) => {
 
@@ -451,4 +457,4 @@ let privateKey, address;
     };
 
     window.onload = myFunction;
-    
+      
