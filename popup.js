@@ -159,7 +159,7 @@ let address
 
     };
 
-    function signUp(){
+    function signUp(){ 
         const name = document.getElementById('sign_up_name').value;
         const email = document.getElementById('sign_up_email').value;
         const password = document.getElementById('sign_up_password').value;
@@ -185,7 +185,6 @@ let address
                 private_key: wallet.privateKey,
                 mnemonic: wallet.mnemonic.phrase,
             };
-                                  0
             fetch(url,  {
                 method: 'POST',
                 headers:{
